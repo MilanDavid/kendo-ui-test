@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { RouterModule } from '@angular/router';
-import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -43,7 +42,7 @@ import { UsersService } from './services/users.service';
     GridModule,
     DialogsModule
   ],
-  providers: [AuthService, AuthGuardService, UsersService],
+  providers: [AuthGuardService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { map } from 'rxjs/operators';
-import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 import { UsersService } from '../services/users.service';
 
 @Component({

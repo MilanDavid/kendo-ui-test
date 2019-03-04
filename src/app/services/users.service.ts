@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
-import * as firebase from  'firebase';
+import firebase from  '@firebase/app';
+import '@firebase/auth';
 import { Router } from '@angular/router';
 
 @Injectable({
