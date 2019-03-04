@@ -1,0 +1,44 @@
+<form novalidate #myForm="ngForm">
+  <kendo-grid [data]="view | async" [pageSize]="5" [skip]="skip" [pageable]="true"
+    [scrollable]="'none'" (pageChange)="pageChange($event)" [navigable]="true" kendoGridFocusable
+    (edit)="editHandler($event)" (cancel)="cancelHandler($event)"
+    (save)="saveHandler($event)" (remove)="removeHandler($event)"
+    (add)="addHandler($event, myForm)"
+    [navigable]="true"
+    >
+    <ng-template kendoGridToolbarTemplate>
+      <button kendoGridAddCommand type="button">Add new</button>
+    </ng-template>
+    <kendo-grid-column field="name" width="200" title="Name">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input [(ngModel)]="dataItem.name" kendoGridFocusable name="name" class="k-textbox" required />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="validFrom" width="200" title="ValidFrom">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input [(ngModel)]="dataItem.validFrom" kendoGridFocusable name="validFrom" class="k-textbox" required />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="quantity" width="200" title="Quantity">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input [(ngModel)]="dataItem.quantity" kendoGridFocusable name="quantity" class="k-textbox" required />
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="price" width="200" title="Unit Price" format="{0:c}">
+      <ng-template kendoGridEditTemplate let-dataItem="dataItem">
+        <input [(ngModel)]="dataItem.price" kendoGridFocusable name="price" class="k-textbox" required />
+      </ng-template>
+    </kendo-grid-column>
+
+    <!-- <kendo-grid-column field="price" title="Unit Price" format="{0:c}">
+    </kendo-grid-column> -->
+    <kendo-grid-command-column title="command" width="220">
+      <ng-template kendoGridCellTemplate let-isNew="isNew">
+          <button kendoGridEditCommand type="button" [primary]="true">Edit</button>
+          <button kendoGridRemoveCommand type="button">Remove</button>
+          <button kendoGridSaveCommand type="button" [disabled]="myForm.invalid || myForm.pristine">{{ isNew ? 'Add' : 'Update' }}</button>
+          <button kendoGridCancelCommand type="button">{{ isNew ? 'Discard changes' : 'Cancel' }}</button>
+      </ng-template>
+  </kendo-grid-command-column>
+  </kendo-grid>
+</form>

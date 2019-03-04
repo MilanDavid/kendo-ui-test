@@ -1,0 +1,25 @@
+<div class="flex-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 offset-sm-3 example-col">
+      <div class="card">
+        <div class="card-block">
+          <form class="k-form" #f="ngForm" (ngSubmit)="signIn(f)">
+            <fieldset>
+              <legend>Sign in</legend>
+              <label class="k-form-field">
+                <span>Username</span>
+                <input class="k-textbox" ngModel name="username" #username="ngModel" required placeholder="Your username" />
+              </label>
+              <label class="k-form-field">
+                <span>Password</span>
+                <input type="password" ngModel name="password" #password="ngModel" required class="k-textbox" placeholder="Your password" />
+              </label>
+              <p class="error" *ngIf="error">{{error}}</p>
+            </fieldset>
+            <button class="k-button k-primary" [disabled]="!f.valid">Sign in</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

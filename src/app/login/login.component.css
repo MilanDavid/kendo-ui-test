@@ -1,0 +1,18 @@
+.flex-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.row {
+    border: 1px solid blue;
+}
+
+.k-form fieldset, .k-form-inline fieldset {
+    margin: 30px 0px;
+}
+
+.error {
+    color: red;
+}
